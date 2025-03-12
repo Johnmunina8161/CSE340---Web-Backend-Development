@@ -1,6 +1,212 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+/* CSS Styles - Combined Mobile and Desktop */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 95%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Needed for hamburger menu positioning */
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    display: none; /* Hidden by default on desktop */
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+header nav {
+    display: flex; /* Ensure nav is a flex container */
+    width: 100%; /* Take full width on mobile */
+    justify-content: center; /* Center nav items */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 5px 10px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+header .account {
+    background: #555;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.welcome {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.delorean {
+    position: relative;
+    display: inline-block;
+}
+
+.delorean img {
+    max-width: 100%;
+}
+
+.own-today {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upgrades-reviews {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.upgrades,
+.reviews {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.upgrade-items,
+.review-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.upgrade-item {
+    width: 48%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.upgrade-item img {
+    max-width: 100px;
+}
+
+.review-item {
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+    color: white;
+}
+
+/* Media Query for Desktop */
+@media (min-width: 768px) {
+    .container {
+        width: 80%;
+    }
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header .logo {
+        margin-bottom: 0;
+    }
+
+    header .account {
+        margin-top: 0;
+    }
+
+    .upgrades-reviews {
+        flex-direction: row;
+    }
+
+    .upgrades,
+    .reviews {
+        width: 48%;
+        margin-bottom: 0;
+    }
+
+    /* Hide hamburger on desktop */
+    .hamburger {
+        display: none;
+    }
+
+    /* Show navigation on desktop */
+    header nav {
+        display: flex;
+    }
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 767px) {
+    /* Show hamburger on mobile */
+    .hamburger {
+        display: block;
+    }
+
+    /* Initially hide navigation on mobile */
+    header nav {
+        display: none;
+    }
+
+    header nav.active {
+        display: flex;
+        width: 100%;
+    }
 }
